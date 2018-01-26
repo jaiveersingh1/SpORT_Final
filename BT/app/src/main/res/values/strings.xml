@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SpORT_BT_TEST</string>
+    <string name="header">SpORT</string>
+    <string name="main_instructions">Choose a sport to play:</string>
+    <string name="basketball">Basketball</string>
+    <string name="soccer">Soccer</string>
+    <string name="level_select_instructions">Choose a level for\ </string>
+    <string name="title_activity_level_select">Level Select</string>
+    <string name="level_one">Level 1</string>
+    <string name="level_two">Level 2</string>
+    <string name="level_three">Level 3</string>
+    <string name="easy">Easy</string>
+    <string name="medium">Medium</string>
+    <string name="hard">Hard</string>
+    <string name="push_instructions">Push the green button to shoot!</string>
+    <string name="pan_instructions">Use the yellow buttons to aim sideways, and the green \
+    button to shoot!</string>
+    <string name="tilt_instructions">Use the blue buttons to aim up and down, and the \
+    green button to shoot!</string>
+    <string name="full_instructions">Use the yellow and blue buttons to aim, and the green \
+    button to shoot!</string>
+    <string name="title_activity_instructions">InstructionsActivity</string>
+</resources>
