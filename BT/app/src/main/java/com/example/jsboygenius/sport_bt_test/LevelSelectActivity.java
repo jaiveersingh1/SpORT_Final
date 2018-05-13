@@ -1,22 +1,25 @@
 package com.example.jsboygenius.sport_bt_test;
 
-import android.graphics.Color;
-import android.media.Image;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import org.apache.commons.lang3.StringUtils;
 
 public class LevelSelectActivity extends AppCompatActivity {
     private String selectedSport;
+    private int selectedLevel;
     private TextView mCurrentSport;
     private ImageView mCurrentSportIcon;
+    private Button mBtLevel1;
+    private Button mBtLevel2;
+    private Button mBtLevel3;
+    private Button mBtnBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +30,9 @@ public class LevelSelectActivity extends AppCompatActivity {
 
         mCurrentSport = (TextView) findViewById(R.id.currentSport);
         mCurrentSportIcon = (ImageView) findViewById(R.id.currentSportIcon);
+        mBtLevel1 = (Button) findViewById(R.id.levelOneBtn);
+        mBtLevel2 = (Button) findViewById(R.id.levelTwoBtn);
+        mBtLevel3 = (Button) findViewById(R.id.levelThreeBtn);
 
         mCurrentSport.setText(StringUtils.capitalize(selectedSport));
 
@@ -40,6 +46,36 @@ public class LevelSelectActivity extends AppCompatActivity {
             mCurrentSport.setTextColor(0xAA2196F3);
             mCurrentSportIcon.setImageResource(R.drawable.soccer_icon);
         }
+
+        mBtLevel1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedLevel = 1;
+                launchInstructions();
+            }
+        });
+        mBtLevel2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedLevel = 2;
+                launchInstructions();
+            }
+        });
+        mBtLevel3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectedLevel = 3;
+                launchInstructions();
+            }
+        });
+        mBtnBack = (Button) findViewById(R.id.backBtn);
+
+        mBtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -50,5 +86,11 @@ public class LevelSelectActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    private void launchInstructions() {
+        Intent intent = new Intent(this, InstructionsActivity.class);
+        intent.putExtra("SELECTED_SPORT", selectedSport);
+        intent.putExtra("SELECTED_LEVEL", selectedLevel);
+        startActivity(intent);
     }
 }

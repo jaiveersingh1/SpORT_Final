@@ -13,11 +13,21 @@
     <string name="medium">Medium</string>
     <string name="hard">Hard</string>
     <string name="push_instructions">Push the green button to shoot!</string>
-    <string name="pan_instructions">Use the yellow buttons to aim sideways, and the green \
+    <string name="pan_instructions">Use the yellow buttons to aim sideways, and the green
     button to shoot!</string>
-    <string name="tilt_instructions">Use the blue buttons to aim up and down, and the \
+    <string name="tilt_instructions">Use the blue buttons to aim up and down, and the
     green button to shoot!</string>
-    <string name="full_instructions">Use the yellow and blue buttons to aim, and the green \
+    <string name="full_instructions">Use the yellow and blue buttons to aim, and the green
     button to shoot!</string>
-    <string name="title_activity_instructions">InstructionsActivity</string>
+    <string name="title_activity_instructions">Ready to Play</string>
+    <string name="current_mode">Currently playing\ </string>
+    <string name="back_from_instructions">Back</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="reconnect">Reconnect SpORT</string>
+    <string name="administrator_mode">Administrator Mode</string>
+    <string name="admin_help">Welcome to SpORT! Before we begin, SpORT needs to connect to Bluetooth.
+    Please click \"Yes\" to any prompts that appear.</string>
+    <string name="admin_to_student">Start Playing</string>
+    <string name="demo_mode">Demo Mode</string>
+    <string name="full_mode">Full Mode</string>
 </resources>

@@ -1,10 +1,12 @@
 package com.example.jsboygenius.sport_bt_test;
 
 import android.app.ActionBar;
+import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +14,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,6 +31,7 @@ public class SportSelectActivity extends AppCompatActivity {
     private ImageButton mBtBasketball;
     private ImageButton mBtSoccer;
     private String selectedSport;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +55,6 @@ public class SportSelectActivity extends AppCompatActivity {
                 launchLevelSelect();
             }
         });
-
     }
 
     private void launchLevelSelect() {
@@ -58,4 +62,9 @@ public class SportSelectActivity extends AppCompatActivity {
         intent.putExtra("SELECTED_SPORT", selectedSport);
         startActivity(intent);
     }
+    @Override
+    public void onBackPressed() {
+        //do absolutely nothing!
+    }
+
 }
