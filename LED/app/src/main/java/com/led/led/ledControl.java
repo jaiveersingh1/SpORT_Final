@@ -35,8 +35,6 @@ public class ledControl extends ActionBarActivity {
     BluetoothAdapter myBluetooth = null;
     BluetoothSocket btSocket = null;
     private boolean isBtConnected = false;
-    //SPP UUID. Look for it
-    static final UUID myUUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -204,6 +202,8 @@ public class ledControl extends ActionBarActivity {
             try {
 
                 myBluetooth = BluetoothAdapter.getDefaultAdapter();//get the mobile bluetooth device
+                Log.d("bob", address);
+
                 BluetoothDevice device = myBluetooth.getRemoteDevice(address);//connects to the device's address and checks if it's available
                 btSocket =(BluetoothSocket) device.getClass().getMethod("createRfcommSocket", new Class[] {int.class}).invoke(device,1);
                 BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
