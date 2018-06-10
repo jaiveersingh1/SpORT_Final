@@ -33,7 +33,7 @@ public class AdminActivity extends AppCompatActivity {
     private Button mBtStart;
     private Switch mBtToggle;
     //TODO Make sure the Raspberry Pi's address is always the following
-    private final String address = "B8:27:EB:4A:3E:55";
+    private final String address = "B8:27:EB:3D:EF:DB";
     private boolean isBtConnected = false;
     private static boolean demoOverride = false;
     private ProgressDialog progress;
