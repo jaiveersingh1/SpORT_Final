@@ -57,7 +57,7 @@ public class InstructionsActivity extends AppCompatActivity {
         mBtnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btSend("BK: ", getApplicationContext());
+                btSend("BK: ", getApplicationContext()); //Freeze the rpi where it is while students switch
                 finish();
             }
         });
@@ -72,7 +72,7 @@ public class InstructionsActivity extends AppCompatActivity {
         }
 
         switch(selectedLevel)
-        {
+        { //yada yada fill in the instructions - this is actually kinda important since it's currently the only instructions we have for the user
             case 1:
                 mCurrentLevel.setText(getResources().getText(R.string.level_one));
                 mCurrentLevel.setTextColor(getResources().getColor(R.color.easy));
@@ -100,7 +100,7 @@ public class InstructionsActivity extends AppCompatActivity {
                 mModeInstructionsImg.setImageResource(R.drawable.full);
                 break;
         }
-        btSend("SP: "+ selectedSport.substring(0, 4) + selectedLevel, getApplicationContext());
+        btSend("SP: "+ selectedSport.substring(0, 4) + selectedLevel, getApplicationContext()); //tell rpi how to behave
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

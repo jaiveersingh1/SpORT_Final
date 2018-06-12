@@ -26,7 +26,7 @@ public class LevelSelectActivity extends AppCompatActivity {
         setContentView(R.layout.level_select);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        selectedSport = getIntent().getStringExtra("SELECTED_SPORT");
+        selectedSport = getIntent().getStringExtra("SELECTED_SPORT"); //So now we have to grab that P.S.
 
         mCurrentSport = (TextView) findViewById(R.id.currentSport);
         mCurrentSportIcon = (ImageView) findViewById(R.id.currentSportIcon);
@@ -38,8 +38,8 @@ public class LevelSelectActivity extends AppCompatActivity {
 
         if("basketball".equals(selectedSport))
         {
-            mCurrentSport.setTextColor(0xAAFF9800);
-            mCurrentSportIcon.setImageResource(R.drawable.basketball_icon);
+            mCurrentSport.setTextColor(0xAAFF9800); //Because it's the little things that matter...
+            mCurrentSportIcon.setImageResource(R.drawable.basketball_icon); //Change text color + images to match current sport
         }
         else if ("soccer".equals(selectedSport))
         {
@@ -88,9 +88,9 @@ public class LevelSelectActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     private void launchInstructions() {
-        Intent intent = new Intent(this, InstructionsActivity.class);
+        Intent intent = new Intent(this, InstructionsActivity.class); //headed to instructions now
         intent.putExtra("SELECTED_SPORT", selectedSport);
-        intent.putExtra("SELECTED_LEVEL", selectedLevel);
+        intent.putExtra("SELECTED_LEVEL", selectedLevel); //Like a game of telephone, we alter the delivery message a little bit and then pass it on
         startActivity(intent);
     }
 }

@@ -58,9 +58,9 @@ public class SportSelectActivity extends AppCompatActivity {
     }
 
     private void launchLevelSelect() {
-        Intent intent = new Intent(this, LevelSelectActivity.class);
+        Intent intent = new Intent(this, LevelSelectActivity.class); //Headed to level select
         intent.putExtra("SELECTED_SPORT", selectedSport);
-        startActivity(intent);
+        startActivity(intent); //An "intent" is like a P.S., so you can deliver a message to the next activity
     }
     @Override
     public void onBackPressed() {

@@ -56,7 +56,7 @@ public class AdminActivity extends AppCompatActivity {
         });
         mBtToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) { //Demo toggle switch, to skip actual connection
                 demoOverride = b;
             }
         });
@@ -68,7 +68,7 @@ public class AdminActivity extends AppCompatActivity {
                     return;
                 }
                 Intent intent = new Intent(AdminActivity.this, SportSelectActivity.class);
-                startActivity(intent);
+                startActivity(intent); //Go to the SportSelectActivity now!
             }
         });
 
@@ -119,15 +119,13 @@ public class AdminActivity extends AppCompatActivity {
                 btSocket =(BluetoothSocket) device.getClass().getMethod("createRfcommSocket", new Class[] {int.class}).invoke(device,1);
                 BluetoothAdapter.getDefaultAdapter().cancelDiscovery();
                 btSocket.connect();//start connection
-                btSend("SYNCED", getApplicationContext());
+                btSend("SYNCED", getApplicationContext()); //Like knocking on the door and yelling "Honey, I'm home!"
 
             }
             catch (Exception e) {
                 ConnectSuccess = demoOverride;
                 e.printStackTrace();
             }
-            //Alternative code that was used on different site. It uses INSECURE Rfcomm alternatively
-            //btSocket = dispositivo.createInsecureRfcommSocketToServiceRecord(myUUID);//create a RFCOMM (SPP) connection
             return null;
         }
         @Override
@@ -137,12 +135,12 @@ public class AdminActivity extends AppCompatActivity {
 
             if (!ConnectSuccess)
             {
-                msg("Connection failed. Re-connect in a few moments.");
+                msg("Connection failed. Re-connect in a few moments."); //Basically if you get this, the rpi isn't on yet
                 mBtReconnect.setEnabled(true);
             }
             else
             {
-                msg("SpORT is online!");
+                msg("SpORT is online!"); //If we're good, then the app allows you to go to the next stage
                 isBtConnected = true;
                 mBtReconnect.setEnabled(false);
                 mBtStart.setVisibility(View.VISIBLE);
@@ -163,12 +161,12 @@ public class AdminActivity extends AppCompatActivity {
             btSocket.getOutputStream().write(msg.getBytes());
         }
         catch (IOException e) {
-            e.printStackTrace();
+            e.printStackTrace(); //This should never happen :$ but if it does it means the rpi lost power or something
             Toast.makeText(context, "Signal lost! Please force-close and launch again!", Toast.LENGTH_SHORT).show();
         }
     }
     @Override
     public void onBackPressed() {
-        //do absolutely nothing!
+        //do absolutely nothing! We're trapping the aide in this app :)
     }
 }
